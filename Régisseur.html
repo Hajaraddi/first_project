@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="boostsrap/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker@3/daterangepicker.min.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker@3/daterangepicker.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker@3/daterangepicker.min.js"></script>
+
+    <title>Régisseur</title>
+    <style>
+        .p-6{
+          padding: 1.5rem;
+        }
+        .mb-6
+        {
+          margin-bottom: 1.5rem;
+        }
+        .text-3xl {
+          font-size: 1.875rem;
+          line-height: 2.25rem;
+        }
+        .font-bold {
+          font-weight: 700;
+        }
+        .grid {
+          display: grid;
+        }
+        .gap-y-4 {
+          row-gap: 1rem;
+        }
+        .gap-x-8 {
+          column-gap: 2rem;
+        }
+        .flex {
+          display: flex;
+        }
+        .flex-col {
+          flex-direction: column;
+        }
+        .items-start {
+          align-items: flex-start;
+        }
+        .gap-1 {
+          gap: 0.25rem;
+        }
+        .text-sm {
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+          color: #fdf3f3;
+        }
+        /* .text-slate-400 {
+          --tw-text-opacity: 1;
+          color: rgb(148 163 184 / var(--tw-text-opacity));
+        } */
+        
+        #img1{
+            width: 32px;
+            height: 24px;
+           }
+        
+           .checkbox-group {
+                    display: inline-block;
+                    margin-right: 10px; /* Espacement entre les cases à cocher */
+                    margin-left:8rem;
+                    margin-top:0;
+        
+                    
+                }
+                .checkbox-frame {
+                    margin-top:1.5rem;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    display: inline-block;
+                    margin-left:13rem;
+                }
+                 /* Marge pour le bouton de validation */
+                 .submit-button {
+                    margin-top: 10px;
+                }
+                .hidden {
+          display: none;
+        }
+        
+        fieldset{
+            background-color:#fff;
+            
+            /* margin-top: 13rem; */
+            /* margin-left: 0%; */
+        }
+        /* #E1:hover{
+            background-color: rgb(116, 228, 228);
+            width: 120px; height: 50px;
+           border-radius: 50%;
+           justify-content: center;
+            } */
+           .bgcolor{
+            width: 100%;
+            background-color: rgb(61, 60, 55);
+            margin-top: 7.6rem;
+            height: 60rem;
+           }
+        
+        /* .body{
+           font-family: 'Poppins';
+        } */
+        #idd{
+          color: #fdf3f3;
+          font-family: 'Poppins';
+        }
+        
+        .ligne {
+            border-top: 1px solid black; /* Définir une bordure supérieure solide de 1 pixel */
+            margin: 20px 0; /* Ajouter une marge pour espacer la ligne */
+        }
+        
+        
+        
+        @media (min-width: 768px) {
+          .md\:grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        
+        </style>
+</head>
+<body style="background-color: rgb(252, 247, 247);">
+ <div>
+    <nav style="width: 226px;">
+        <ul>
+            <li><div class="navbar-logo" id="menu">
+                    <img src="Logo commune1.png" alt="logo d'entreprise" class="log"></div>
+            </li>
+            <li class="tt"> <div style="text-align: center; font-size: 21px; color: #fff;">User <br>Régisseur</div> </li><br>
+            <li><div style="float: left;"><img src="tableau-de-bord.png" alt="tb" id="img1"></div>
+            <a href="" class="menu" style="text-decoration: none;"> Tableau de bord</a>
+        </li>
+        <li><div style="float: left;"><img src="conforme.png" alt="doc"></div>
+            <a href="" class="menu" style="text-decoration: none;">Demandes</a>
+           </li>
+        </ul>
+    </nav>
+ </div>
+
+ <div style="width: 64rem; height: 24rem; border: 2px; background-color: rgb(61, 60, 55); margin-left: 18rem; border-radius: 5%;">
+    <form class="p-6" style="margin-left: 6rem; margin-top: 3rem;">
+      <h1 class="mb-6 text-3xl font-bold" style="color: #fdf3f3; font-family: 'Poppins'; ">Recherche</h1>
+      <div class="grid md:grid-cols-2  gap-y-4 gap-x-8">
+        <div class="flex flex-col items-start gap-1">
+          <label class="text-sm text-slate-400" >N Dossier</label>
+          <input id="numeroDossier" type="text" class="w-full rounded-md border border-slate-300 px-2 py-1" />
+        </div>
+        <div class="flex flex-col items-start gap-1">
+          <label for="date-range"  class="text-sm text-slate-400" style="margin-left: -5rem;">Date de dépôt</label>
+          <!-- <label for="status" class="text-sm text-slate-400" style="margin-left: -5rem;">Date de dépôt </label> -->
+          <input type="text" id="date-range" name="date-range"
+           class="w-full rounded-md border border-slate-300 px-2 py-1" style="margin-left: -5rem;"/>
+          <!-- <input id="status" type="text" class="w-full rounded-md border border-slate-300 px-2 py-1" style="margin-left: -5rem;"/> -->
+        </div>
+        <div class="flex flex-col items-start gap-1">
+          <label for="objetDemande" class="text-sm text-slate-400">Objet de la demande</label>
+          <select class="w-full rounded-md border border-slate-300 px-2 py-1">
+            <option value="">Soumission aux marchés publics</option>
+            <option value="">Vente immobilière</option>
+            <option value="">Obtention de permis d'habiter</option>
+            <option value="">Administratif</option>
+            <option value="">Taxe terrains non bâtis</option>
+          </select>
+        </div>
+        <div class="flex flex-col items-start gap-1">
+          <label for="identifiant" class="text-sm text-slate-400" style="margin-left: -5rem;">RC / CIN / IF</label>
+          <input id="identifiant" type="text" class="w-full rounded-md border border-slate-300 px-2 py-1" style="margin-left: -5rem;"/>
+        </div>
+        <div class="flex flex-col items-start gap-1">
+          <label for="numeroDossier" class="text-sm text-slate-400">Statut</label>
+          <select class="w-full rounded-md border border-slate-300 px-2 py-1">
+            <option value="">Nouvelle demande</option>
+            <option value="">Validé pour traitement</option>
+            <option value="">Rejeté-Dossier incomplet</option>
+            <option value="">Validé assiete fiscale</option>
+            <option value="">Rejeté-assiete fiscale</option>
+           
+          </select>  
+              </div>
+        <button class="custom-btn btn-14" style="margin-left: 8.3rem; margin-top: 2rem; font-family: 'Poppins';">Chercher</button>
+        <button class="custom-btn btn-15" style="margin-left: 37rem; margin-top: 0rem; font-family: 'Poppins';" type="reset">Vider</button>
+    
+        
+      </div>
+      
+    </form>
+    
+  </div><br>
+  <!-- <main class="table"> -->
+    <section class="table__header">
+       
+        <div class="input-group" style="margin-left: 16.5rem;">
+            <input type="search"  style="margin-left: -1rem; background-color:rgb(252, 247, 247);">
+            
+        </div>
+       <label for="" style="margin-left: 67rem; color: orangered; float: left; font-size: larger; 
+       font-family: Georgia, 'Times New Roman', Times, serif;">Export As</label> <div class="export__file">
+            <label for="export-file" class="export__file-btn" title="Export File" style="
+            margin-left: 0rem;"></label>
+            <input type="checkbox" id="export-file" >
+            <div class="export__file-options">
+                <!-- <label>Export As &nbsp; &#10140;</label> -->
+                <label href="#" for="export-file" class="download-button" id="downloadLabel">PDF <img src="images/pdf.png" alt=""></label>
+                <!-- <label for="export-file" id="toJSON">JSON <img src="images/json.png" alt=""></label> -->
+                <label for="export-file" id="toCSV">CSV <img src="images/csv.png" alt=""></label>
+                <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png" alt=""></label>
+            </div>
+        </div>
+    </section>
+    <!-- <div class="ligne" style="margin-top: -1rem; width: 82%; margin-left: 14rem;"></div> -->
+  <div id="contenu">
+    <table style="margin-top: 2rem; width: 70%; margin-left:18.7rem; border-radius: 4%;font-family: 'Poppins'; border-collapse: inherit;">
+        <thead>
+          <tr>
+            <th>N dépôt<span class="icon-arrow">&UpArrow;</span></th>
+            <th>Date de dépôt <span class="icon-arrow">&UpArrow;</span></th>
+            <th>Statut <span class="icon-arrow">&UpArrow;</span></th>
+            <th>Action <span class="icon-arrow">&UpArrow;</span></th>
+          </tr>
+        </thead>
+        <tbody style="font-family:'Times New Roman', Times, serif; color: #fff;">
+          <tr style="background-color: #4e4b4b;">
+            <td style="background-color: #4e4b4b;"><strong id="">1</strong></td>
+            <td id="" style="background-color: #4e4b4b;">12/1/2023</td>
+            <td id="" style="background-color: #4e4b4b;">Nouvelle demande</td>
+            <td style="background-color: #4e4b4b;"><form method="post" action="" >
+                <input type="submit" name="visualiser" id="toggleButton1" style="background-color: rgb(248, 162, 112);" value="visualiser" ></td>
+          </tr>
+          <tr>
+            <td style="background-color: #4e4b4b;">2<strong id=""></strong></td>
+            <td id="" style="background-color: #4e4b4b;">12/3/2022</td>
+            <td id=""style="background-color: #4e4b4b;">Rejeté-Dossier incomplet</td>
+            <td style="background-color: #4e4b4b;"><form method="post" action="">
+                <input type="submit" name="visualiser" id="toggleButton2" style="background-color: rgb(248, 162, 112);" value="visualiser"></td>
+                
+          </tr>
+          <tr>
+            <td style="background-color: #4e4b4b;">3<strong id=""></strong></td>
+            <td style="background-color: #4e4b4b;"id="">1/2/2022</td>
+            <td style="background-color: #4e4b4b;" id="">Validé pour traitement</td>
+            <td style="background-color: #4e4b4b;"><form method="post" action="">
+                <input type="submit" name="visualiser" id="toggleButton3"style="background-color: rgb(248, 162, 112);" value="visualiser"></td>
+          </tr>
+          <tr>
+            <td style="background-color: #4e4b4b;">3<strong id=""></strong></td>
+            <td style="background-color: #4e4b4b;"id="">1/10/2023</td>
+            <td style="background-color: #4e4b4b;" id="">Validé assiete fiscale</td>
+            <td style="background-color: #4e4b4b;"><form method="post" action="">
+                <input type="submit" name="visualiser" id="toggleButton4"style="background-color: rgb(248, 162, 112);" value="visualiser"></td>
+          </tr>
+          <tr>
+            <td style="background-color: #4e4b4b;">2<strong id=""></strong></td>
+            <td id="" style="background-color: #4e4b4b;">12/3/2022</td>
+            <td id=""style="background-color: #4e4b4b;">Rejeté-assiette fiscale</td>
+            <td style="background-color: #4e4b4b;"><form method="post" action="">
+                <input type="submit" name="visualiser" id="toggleButton5" style="background-color: rgb(248, 162, 112);" value="visualiser"></td>
+                
+          </tr>
+
+        </tbody> 
+      
+      </table>
+  </div>
+
+
+ <!-- <form class="container" style="width: 70%; height: 400px; margin-left: 17rem; background-color: rgb(233,229,193);">
+    <br>
+    <h5>Recherche</h5><br><br><br>
+    <label>N dépôt</label>
+    <input type="text">
+    <label>Date de dépôt :Début</label>
+    <input type="date">
+    <label>Date de dépôt :Fin</label>
+    <input type="date"><br><br><br>
+    <label>RC/CIN/IF</label>
+    <input type="text">
+    <label>Objet de la demande</label>
+    <select name="" id="">
+        <option value="">Soumission aux marchés publics</option>
+        <option value="">Vente immobilière</option>
+        <option value="">Obtention de permis d'habiter</option>
+        <option value="">Administratif</option>
+        <option value="">Taxe terrains non bâtis</option>
+    </select>
+    <label>Statut</label>
+    <input type="text">
+    <button class="custom-btn btn-14" style="margin-left: 23rem; margin-top: 4rem;">Recherche</button><br><br><br><br><br>
+ </form> -->
+<!-- <hr style="height: 27px; background-color: rgb(158, 152, 150); margin-left: 14rem;opacity: unset; margin-bottom: 3rem;"> -->
+
+ <!-- <div id="contenu" style="margin-left: 10rem; ">
+    <table style="margin: top 0;">
+        <thead>
+            <tr>
+                <th>N dépôt</th>
+                <th>Date de dépôt</th>
+                <th>Statut</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong id=""></strong></td>
+                <td id=""></td>
+                <td id=""></td>
+                <td><form action="" method="post">
+                    <input type="submit" name="Visualiser" id="toggleButton1" value="Visualiser">
+                </td>
+            </tr>
+            <tr>
+                <td><strong id=""></strong></td>
+                <td id=""></td>
+                <td id=""></td>
+                <td><form action="" method="post">
+                    <input type="submit" name="Visualiser" id="toggleButton2" value="Visualiser">
+                </td>
+            </tr>
+           
+            <tr>
+                <td><strong id=""></strong></td>
+                <td id=""></td>
+                <td id=""></td>
+                <td><form action="" method="post">
+                    <input type="submit" name="Visualiser" id="toggleButton3" value="Visualiser">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+ </div> -->
+ <!-- <div id="myDiv" class="hidden">
+
+    <div class="bgcolor" style="margin-top :17rem;">
+      <p style="color: rgb(37, 37, 37);margin-left:6rem;font-size: 32px;">Consulter</p>
+
+
+<fieldset class='checkbox-frame' style="margin-top: 1rem; width: 45rem; margin-left: 15rem;">
+<form method="post" action="" enctype="multipart/form-data">
+    <div>
+<div style="float: left;">
+<label style="margin-left: 1.5rem;" >N Dossier :</label>
+<label id=""></label>
+ <input type="text"readonly  style="background-color: #f0f0f0; color: #999;"><br><br> -->
+
+<!-- </div>
+<div style="float: left;">
+<label style="margin-left: 7rem;">Statut:</label>
+<label id=""></label> -->
+<!-- <input type="text" readonly  style="background-color: #f0f0f0; color: #999;"><br><br> -->
+<!-- </div>
+<label style="margin-left: 14rem;">Date visa :</label>
+<label id=""></label> -->
+<!-- <input type="text" readonly  style="background-color: #f0f0f0; color: #999;"><br><br> -->
+<!-- </div>
+</form>
+</fieldset> -->
+
+<div id="myDiv" class="hidden">
+<div>
+    <div class="bgcolor" >
+      <p style="color:#fdf3f3;margin-left:6rem;font-size: 36px;margin-top :3rem;">Consulter</p>
+
+
+      <fieldset class='checkbox-frame' style="margin-top: 2rem; width: 62rem;
+      margin-left: 12rem; box-shadow: 1px 1px 12px black; border-radius: 2rem;">
+      
+     <form method="post" action="" enctype="multipart/form-data">
+       <div style="margin-top: 3rem; margin-left: 2rem; font-family: 'Poppins';">
+     <div style="float: left;">
+     <label style="font-family: 'Poppins';">N Dossier :</label>
+     <label id="hoj"></label>
+     <label style="margin-left: 12.7rem;">Date de dépôt:</label>
+      <label id="datee"></label>
+       </div>
+     <div style="float: left;">
+      <label style="margin-left: 6rem;">Objet de la demande:</label>
+      <label id="obbj"></label>
+      
+     </div><br><br>
+     <div style="float: left;">
+     <label>Nom et prénom:</label>
+     <label id="hjr"></label>
+     <label style="margin-left: 9rem;">Domicile fiscale :</label>
+     <label id="hjr"></label>
+     <label style="margin-left: 9.2rem;">Exerçant d'activité :</label>
+     <label id=""></label>
+     </div><br><br>
+     <div style="float: left;">
+       <label>N identifiant fiscale:</label>
+       <label id=""></label>
+       <label style="margin-left: 9.5rem;">RC/CIN/IF:</label>
+       <label id=""></label>
+       <label style="margin-left: 11.5rem;">N Taxe professionnelle:</label>
+       <label id=""></label>
+       </div><br><br>
+       <div style="float: left;">
+        <label>Titre foncier:</label>
+        <label id=""></label>
+        <label style="margin-left: 12.5rem;">Statut:</label>
+        <label id=""></label>
+        <label style="margin-left: 13.7rem;">Utilisateur:</label>
+        <label id=""></label>
+        </div><br><br>
+     <div style="text-align: justify;">
+        <div style="float: left;">
+       <label for="piece_jointe">CIN:</label><br>
+       <a href="pré-demande-F9Z3TWN0.pdf" download class="btn-2" style="text-decoration: none; 
+       height: 40px; width: 230px;"> Télécharger le PDF
+         </a></div>
+      <div style="float: left;">
+      <label for="piece_jointe" style="margin-left: 3rem;">Patente :</label><br>
+      <a href="rep-science-pr-2021.pdf" download class="btn-2" style="text-decoration: none;
+       height: 40px; width: 230px; margin-left: 3rem;"> Télécharger le PDF
+       </a></div>
+       <div style="float: left;">
+         <label for="piece_jointe" style="margin-left: 3rem;">Contrat de bail :</label><br>
+         <a href="pré-demande-F9Z3TWN0.pdf" download class="btn-2" style="text-decoration: none; 
+         height: 40px; width: 230px;box-shadow: #161515; margin-left: 3rem;">Télécharger le PDF
+           </a></div>
+               
+               <div style="float: left;">
+               <label for="piece_jointe" style="margin-left:3rem;">RC :</label><br>
+               <a href="pré-demande-F9Z3TWN0.pdf" download class="btn-2" style="text-decoration: none; 
+               height: 40px; width: 230px;box-shadow: #161515;margin-left: 3rem;">Télécharger le PDF
+                 </a></div>
+                 <div style="float: left;">
+                   <label for="piece_jointe" style="margin-left: 3rem;">Statut :</label><br>
+                   <a href="pré-demande-F9Z3TWN0.pdf" download class="btn-2" style="text-decoration: none; 
+                   height: 40px; width: 230px;box-shadow: #161515; margin-left: 3rem;">Télécharger le PDF
+                     </a></div><br><br><br><br><br>
+                     </div>
+                    <div class="ligne" style="margin-top: -3.3rem;"></div>
+                    <div style="float: left;">
+                        <label style="margin-left: 2rem;">Date de validation B.O:</label>
+                        <label id=""></label>
+                        <label style="margin-left: 10rem;">Date visa régisseur: </label>
+                        <label id=""></label>
+                        <label style="margin-left: 12rem;">Date Régisseur: </label>
+                        <label id=""></label>
+                        <br><br><br>
+                        <div style="float: left;">
+                          <label style="margin-left: 2rem;">Nom Responsable:</label>
+                          <label id=""></label>
+                          <label style="margin-left: 11rem;">Nom Responsable: </label>
+                          <label id=""></label>
+                          <label style="margin-left: 9rem;">Nom Responsable: </label>
+                          <label id=""></label>
+                          <br><br><br>
+          
+      </form>
+     </div>
+     </fieldset>
+     
+     
+     
+
+<fieldset class='checkbox-frame' style="margin-top: 2rem; width: 62rem;
+margin-left: 12rem; box-shadow: 1px 1px 12px black; border-radius: 2rem;">
+     <div class='checkbox-group' style="margin-top: 1.7rem;margin-left: 15rem;font-size: 25px;">
+     <input type='checkbox' name='checkbox1' value='option1' id="yess"> Payé </div>
+
+ <div class='checkbox-group' style="margin-left:17rem; font-size: 25px;">
+    <input type='checkbox' name='checkbox2' value='option2' id="noo"> Néant </div>
+
+ <div class='input-group' style="margin-left: 13rem;"> 
+     <!-- <input type ='text' placeholder='Commentaire'> -->
+ <textarea name='commentaire' placeholder="Commentaire" rows='4' cols='70' style="margin-top: 3rem;">
+</textarea>
+</div><br><br>
+  <!-- <button class="custom-btn btn-13" style="margin-left: 17rem; margin-top: 3rem;">Valider</button> -->
+
+             <button class="custom-btn btn-13" style="margin-left:13rem;">Valider</button>
+            <button class="custom-btn btn-15" style="margin-left:5rem;">Non valide </button>
+     
+
+</fieldset> 
+
+</table>
+     
+     
+</div>
+
+
+
+
+
+<script>
+    document.getElementById('toggleButton1').addEventListener('click', function(event) {
+     event.preventDefault(); // Prevent form submission
+     var myDiv = document.getElementById('myDiv');
+     myDiv.classList.toggle('hidden');
+   });
+   document.getElementById('toggleButton2').addEventListener('click', function(event) {
+     event.preventDefault(); // Prevent form submission
+     var myDiv = document.getElementById('myDiv');
+     myDiv.classList.toggle('hidden');
+   });
+   document.getElementById('toggleButton3').addEventListener('click', function(event) {
+     event.preventDefault(); // Prevent form submission
+     var myDiv = document.getElementById('myDiv');
+     myDiv.classList.toggle('hidden');
+   });
+   document.getElementById('toggleButton4').addEventListener('click', function(event) {
+     event.preventDefault(); // Prevent form submission
+     var myDiv = document.getElementById('myDiv');
+     myDiv.classList.toggle('hidden');
+   });
+   document.getElementById('toggleButton5').addEventListener('click', function(event) {
+     event.preventDefault(); // Prevent form submission
+     var myDiv = document.getElementById('myDiv');
+     myDiv.classList.toggle('hidden');
+   });
+   
+   </script>
+   
+   <script>
+    document.getElementById("downloadLabel").addEventListener("click", function() {
+         var pdfUrl = "url_du_fichier_pdf.pdf";
+         var pdfFilename = "nom_du_fichier.pdf";
+     
+         fetch(pdfUrl)
+         .then(response => response.blob())
+         .then(blob => {
+             var link = document.createElement("a");
+             link.href = window.URL.createObjectURL(blob);
+             link.download = pdfFilename;
+             link.click();
+             window.URL.revokeObjectURL(link.href);
+         });
+     });
+     </script>
+ 
+ 
+
+
+
+
+   <script src="main.js"></script>
+   <script src="script1.js"></script>
+
+   <!-- <script>
+    function togglecheck(){
+        const yess = document.getElementById('yess');
+        const noo = document.getElementById('noo');
+
+        if(yess.checked){
+            noo.disabled = true;
+            yess.disabled = false;
+        }
+        else{
+            yess.disabled = true;
+            noo.disabled = false ;
+        }
+    }
+   </script> -->
+
+
+
+
+   <script>
+    document.getElementById("toPDF").addEventListener("click", function() {
+        // URL du PDF que vous voulez télécharger
+        var pdfUrl = "url_du_fichier_pdf.pdf";
+        
+        // Nom du fichier PDF une fois téléchargé
+        var pdfFilename = "nom_du_fichier.pdf";
+    
+        // Créez un élément <a> temporaire pour déclencher le téléchargement
+        var link = document.createElement("a");
+        link.href = pdfUrl;
+        link.download = pdfFilename;
+    
+        // Cliquez sur le lien temporaire pour démarrer le téléchargement
+        link.click();
+    
+        // Nettoyez l'élément <a> temporaire
+        link.remove();
+    });
+</script>
+
+
+
+   <script>
+    // Récupérer les références des cases à cocher
+    const checkbox1 = document.getElementById("yess");
+    const checkbox2 = document.getElementById("noo");
+    
+    // Écouter l'événement "change" de la première case à cocher
+    checkbox1.addEventListener("change", function() {
+      if (yess.checked) {
+        noo.checked = false; // Désactiver la deuxième case
+      }
+    });
+    
+    // Écouter l'événement "change" de la deuxième case à cocher
+    checkbox2.addEventListener("change", function() {
+      if (noo.checked) {
+        yess.checked = false; // Désactiver la première case
+      }
+    });
+    </script>
+     <script>
+      $(document).ready(function() {
+        $('#date-range').daterangepicker();
+      });
+    </script>
+
+
+
+
+
+
+
+
+<!-- <script>
+  // Sélectionner l'élément <a> par son ID
+  var downloadLink = document.getElementById("downloadLink");
+
+  // Définir l'URL du fichier PDF
+  var pdfUrl = "pré-demande-F9Z3TWN0.pdf";
+
+  // Définir l'attribut "href" du lien avec l'URL du PDF
+  downloadLink.setAttribute("href", pdfUrl);
+
+  // Spécifier que le lien déclenche le téléchargement plutôt que de naviguer vers l'URL
+  downloadLink.setAttribute("download", "pré-demande-F9Z3TWN0.pdf");
+</script> -->
+</body>
+</html>
+
+    
+
+
+
+
+
+
+

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+   <link rel="stylesheet" href="boostsrap/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker@3/daterangepicker.min.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker@3/daterangepicker.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker@3/daterangepicker.min.js"></script>
+    <title>CITOYENN</title>
+<style>
+.p-6{
+  padding: 1.5rem;
+}
+.mb-6
+{
+  margin-bottom: 1.5rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.font-bold {
+  font-weight: 700;
+}
+.grid {
+  display: grid;
+}
+.gap-y-4 {
+  row-gap: 1rem;
+}
+.gap-x-8 {
+  column-gap: 2rem;
+}
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-start {
+  align-items: flex-start;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #fdf3f3;
+}
+/* .text-slate-400 {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
+} */
+
+#img1{
+    width: 32px;
+    height: 24px;
+   }
+
+   .checkbox-group {
+            display: inline-block;
+            margin-right: 10px; /* Espacement entre les cases à cocher */
+            margin-left:13rem;
+            margin-top:0;
+
+            
+        }
+        .checkbox-frame {
+            margin-top:1.5rem;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: inline-block;
+            margin-left:13rem;
+        }
+         /* Marge pour le bouton de validation */
+         .submit-button {
+            margin-top: 10px;
+        }
+        .hidden {
+  display: none;
+}
+
+fieldset{
+    background-color:#fff;
+    
+    /* margin-top: 13rem; */
+    /* margin-left: 0%; */
+}
+/* #E1:hover{
+    background-color: rgb(116, 228, 228);
+    width: 120px; height: 50px;
+   border-radius: 50%;
+   justify-content: center;
+    } */
+   .bgcolor{
+    width: 100%;
+    background-color: rgb(61, 60, 55);
+    margin-top: 18.9rem;
+    height: 35rem;
+   }
+
+/* .body{
+   font-family: 'Poppins';
+} */
+#idd{
+  color: #fdf3f3;
+  font-family: 'Poppins';
+}
+
+
+
+
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+</style>
+
+
+
+</head>
+ <body style="background-color: rgb(252, 247, 247);">
+  
+        
+<div>
+  <nav>
+         <ul>
+          <li><div class="navbar-logo" id="menu">
+              <img src="Logo commune1.png" alt="Logo d'entreprise" class="log" >
+            </div></li>
+          <li class="tt"><div style="text-align: center;font-family: 'Poppins';font-size: 22px;
+            color: #fdf3f3;">User<br>Opérateur</div></li><br>
+            
+          <li><div style="float: left;">
+            <img id="img1" src="tableau-de-bord.png" alt="tb">
+            </div>
+           <a id="demo" href="" class="menu" style="text-decoration: none; font-family: 'Poppins';" >Tableau de bord</a>
+          </li>
+          <li><div style="float: left;">
+            <img src="conforme.png" alt="" id="img2"></div>
+            <a href="" class="menu" style="text-decoration: none;  font-family: 'Poppins';">Demandes</a>
+          </li>
+          
+      </ul>
+  </nav>
+</div>
+<div style="width: 64rem; height: 24rem; border: 2px; background-color: rgb(61, 60, 55); margin-left: 16rem; border-radius: 5%;">
+    <form class="p-6" style="margin-left: 6rem; margin-top: 3rem;">
+      <h1 class="mb-6 text-3xl font-bold" style="color: #fdf3f3; font-family: 'Poppins'; ">Recherche</h1>
+      <div class="grid md:grid-cols-2  gap-y-4 gap-x-8">
+        <div class="flex flex-col items-start gap-1">
+          <label class="text-sm text-slate-400" >N Dossier</label>
+          <input id="numeroDossier" type="text" class="w-full rounded-md border border-slate-300 px-2 py-1" />
+        </div>
+        <div class="flex flex-col items-start gap-1">
+          <label for="date-range"  class="text-sm text-slate-400" style="margin-left: -5rem;">Date de dépôt</label>
+          <!-- <label for="status" class="text-sm text-slate-400" style="margin-left: -5rem;">Date de dépôt </label> -->
+          <input type="text" id="date-range" name="date-range"
+           class="w-full rounded-md border border-slate-300 px-2 py-1" style="margin-left: -5rem;"/>
+          <!-- <input id="status" type="text" class="w-full rounded-md border border-slate-300 px-2 py-1" style="margin-left: -5rem;"/> -->
+        </div>
+        <div class="flex flex-col items-start gap-1">
+          <label for="objetDemande" class="text-sm text-slate-400">Objet de la demande</label>
+          <select class="w-full rounded-md border border-slate-300 px-2 py-1">
+            <option value="">Soumission aux marchés publics</option>
+            <option value="">Vente immobilière</option>
+            <option value="">Obtention de permis d'habiter</option>
+            <option value="">Administratif</option>
+            <option value="">Taxe terrains non bâtis</option>
+          </select>
+        </div>
+        <div class="flex flex-col items-start gap-1">
+          <label for="identifiant" class="text-sm text-slate-400" style="margin-left: -5rem;">RC / CIN / IF</label>
+          <input id="identifiant" type="text" class="w-full rounded-md border border-slate-300 px-2 py-1" style="margin-left: -5rem;"/>
+        </div>
+        <div class="flex flex-col items-start gap-1">
+          <label for="numeroDossier" class="text-sm text-slate-400">Statut</label>
+          <select class="w-full rounded-md border border-slate-300 px-2 py-1">
+            <option value="">Nouvelle demande</option>
+            <option value="">Validé pour traitement</option>
+            <option value="">Rejeté-Dossier incomplet</option>
+           
+          </select>  
+              </div>
+        <button class="custom-btn btn-14" style="margin-left: 8.3rem; margin-top: 2rem; font-family: 'Poppins';">Chercher</button>
+        <button class="custom-btn btn-15" style="margin-left: 37rem; margin-top: 0rem; font-family: 'Poppins';" type="reset">Vider</button>
+    
+        
+      </div>
+      
+    </form>
+    
+  </div>
+  <!-- <hr style="height: 24px; background-color: rgb(68, 65, 64); margin-left: 14rem;opacity: unset;"> -->
+<div id="contenu">
+    <table style="margin-top: 4rem; width: 70%; margin-left: 18.7rem; border-radius: 4%;font-family: 'Poppins'; border-collapse: inherit;">
+        <thead>
+          <tr>
+            <th>N dépôt</th>
+            <th>Date de dépôt</th>
+            <th>Statut</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #4e4b4b;">
+            <td style="background-color: #4e4b4b;"><strong id=""></strong></td>
+            <td id="" style="background-color: #4e4b4b;"></td>
+            <td id="" style="background-color: #4e4b4b;"></td>
+            <td style="background-color: #4e4b4b;"><form method="post" action="" >
+                <input type="submit" name="visualiser" id="toggleButton1" style="background-color: rgb(248, 162, 112);" value="visualiser" ></td>
+          </tr>
+          <tr>
+            <td style="background-color: #4e4b4b;"><strong id=""></strong></td>
+            <td id="" style="background-color: #4e4b4b;"></td>
+            <td id=""style="background-color: #4e4b4b;"></td>
+            <td style="background-color: #4e4b4b;"><form method="post" action="">
+                <input type="submit" name="visualiser" id="toggleButton2" style="background-color: rgb(248, 162, 112);" value="visualiser"></td>
+                </tr>
+          </tr>
+          <tr>
+            <td style="background-color: #4e4b4b;"><strong id=""></strong></td>
+            <td style="background-color: #4e4b4b;"id=""></td>
+            <td style="background-color: #4e4b4b;" id=""></td>
+            <td style="background-color: #4e4b4b;"><form method="post" action="">
+                <input type="submit" name="visualiser" id="toggleButton3"style="background-color: rgb(248, 162, 112);" value="visualiser"></td>
+          </tr>
+         
+
+        </tbody> 
+      
+      </table>
+  </div>
+
+
+  <div id="myDiv" class="hidden">
+
+    <div class="bgcolor" >
+      <p style="color:#fdf3f3;margin-left:6rem;font-size: 36px;margin-top :3rem;">Consulter</p>
+
+<fieldset class='checkbox-frame' style="margin-top: 2rem; width: 62rem;
+ margin-left: 12rem; box-shadow: 1px 1px 12px black; border-radius: 2rem;">
+ 
+<form method="post" action="" enctype="multipart/form-data">
+  <div style="margin-top: 3rem; margin-left: 2rem; font-family: 'Poppins';">
+<div style="float: left;">
+<label style="font-family: 'Poppins';">N Dossier :</label>
+<label id="hoj"></label>
+<label style="margin-left: 12.7rem;">Date de dossier:</label>
+ <label id="datee"></label>
+  </div>
+<div style="float: left;">
+ <label style="margin-left: 6rem;">Objet de la demande:</label>
+ <label id="obbj"></label>
+ 
+</div><br><br>
+<div style="float: left;">
+<label>Nom et prénom:</label>
+<label id="hjr"></label>
+<label style="margin-left: 9rem;">Domicile fiscale :</label>
+<label id="hjr"></label>
+<label style="margin-left: 9.5rem;">Exerçant d'activité :</label>
+<label id=""></label>
+</div><br><br>
+<div style="float: left;">
+  <label>N identifiant fiscale:</label>
+  <label id=""></label>
+  <label style="margin-left: 8.5rem;">RC/CIN/IF:</label>
+  <label id=""></label>
+  <label style="margin-left: 12rem;">N Taxe professionnelle:</label>
+  <label id=""></label>
+  </div><br><br>
+  <div style="float: left;">
+    <label style="margin-left: 12rem;">Titre foncier:</label>
+    <label id=""></label>
+    <label style="margin-left: 12rem;">Statut:</label>
+    <label id=""></label></div><br><br><br>
+<div style="text-align: justify;">
+   <div style="float: left;">
+  <label for="piece_jointe">CIN:</label><br>
+  <a href="pré-demande-F9Z3TWN0.pdf" download class="btn-2" style="text-decoration: none; 
+  height: 40px; width: 230px;"> Télécharger le PDF
+    </a></div>
+ <div style="float: left;">
+ <label for="piece_jointe" style="margin-left: 3rem;">Patente :</label><br>
+ <a href="rep-science-pr-2021.pdf" download class="btn-2" style="text-decoration: none;
+  height: 40px; width: 230px; margin-left: 3rem;"> Télécharger le PDF
+  </a></div>
+  <div style="float: left;">
+    <label for="piece_jointe" style="margin-left: 3rem;">Contrat de bail :</label><br>
+    <a href="pré-demande-F9Z3TWN0.pdf" download class="btn-2" style="text-decoration: none; 
+    height: 40px; width: 230px;box-shadow: #161515; margin-left: 3rem;">Télécharger le PDF
+      </a></div>
+          
+          <div style="float: left;">
+          <label for="piece_jointe" style="margin-left:3rem;">RC :</label><br>
+          <a href="pré-demande-F9Z3TWN0.pdf" download class="btn-2" style="text-decoration: none; 
+          height: 40px; width: 230px;box-shadow: #161515;margin-left: 3rem;">Télécharger le PDF
+            </a></div>
+            <div style="float: left;">
+              <label for="piece_jointe" style="margin-left: 3rem;">Statut :</label><br>
+              <a href="pré-demande-F9Z3TWN0.pdf" download class="btn-2" style="text-decoration: none; 
+              height: 40px; width: 230px;box-shadow: #161515; margin-left: 3rem;">Télécharger le PDF
+                </a></div><br><br><br><br><br>
+                </div>
+       <button class="custom-btn btn-13" style="margin-left:11rem;">Valider pour traitement</button>
+       <button class="custom-btn btn-16" style="margin-left:5rem;">Dossier incomplet</button>
+
+ </form>
+</div>
+</fieldset>
+</div>
+</div>
+</table>
+
+  
+<script>
+  document.getElementById('toggleButton1').addEventListener('click', function(event) {
+   event.preventDefault(); // Prevent form submission
+   var myDiv = document.getElementById('myDiv');
+   myDiv.classList.toggle('hidden');
+ });
+ document.getElementById('toggleButton2').addEventListener('click', function(event) {
+   event.preventDefault(); // Prevent form submission
+   var myDiv = document.getElementById('myDiv');
+   myDiv.classList.toggle('hidden');
+ });
+ document.getElementById('toggleButton3').addEventListener('click', function(event) {
+   event.preventDefault(); // Prevent form submission
+   var myDiv = document.getElementById('myDiv');
+   myDiv.classList.toggle('hidden');
+ });
+ 
+ 
+ </script>
+
+<script>
+  $(document).ready(function() {
+    $('#date-range').daterangepicker();
+  });
+</script>
+<script src="main.js"></script>
+ 
+</body>
+</html>
